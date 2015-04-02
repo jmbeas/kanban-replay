@@ -32,9 +32,9 @@ function Card(cardId,description) {
     theBoard.createColumns( ["to-do","wip","done"] );
     var new_card = new Card("ABC");
     new_card.appendTo($("#to-do .cards"));
-    $(document).on('click', "#card-A", function (){
+    $(document).on('click', "#card-ABC", function (){
       $(this).fadeOut('slow',function () {
-        $(this).appendTo('#wip').fadeIn('slow');
+        $(this).appendTo('#wip .cards').fadeIn('slow');
       });
     });
   });
