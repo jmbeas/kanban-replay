@@ -8,7 +8,9 @@ h1 {
 }
 
 #board {
-  border: 1px solid #ccc;
+  border: 4px solid #000;
+  border-radius: 4px;
+  box-shadow: 3px 3px 4px grey;
   background: white;
   display: table;
   margin-left: auto;
@@ -21,6 +23,12 @@ h1 {
   width: 4em;
   height: 12em;
   padding: 0.2em;
+}
+
+.col-title {
+  border-bottom: 1px solid #222;
+  text-align: center;
+  margin-bottom: 2px;
 }
 
 .card {
