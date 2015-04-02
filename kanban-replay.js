@@ -5,21 +5,37 @@ function Board(element) {
       var column_name = columns[i];
       var new_column = $("<div>").addClass("col").attr("id",column_name);
       var column_title = $("<div>").addClass("col-title").text(column_name);
-      new_column.append(column_title)
+      var container = $("<div>").addClass("cards");
+      new_column.append(column_title).append(container);
       this.theBoard.append(new_column);
     }
-  };
+  }
 }
 
-function Card() {
-  return $("<div>").addClass("card");
+function Card(cardId,description) {
+  this.id = cardId;
+  if ( description ) {
+    this.description = description;
+  } else {
+    this.description = this.id;
+  }
+  this.moveToColumn = function(element,newColumn) {
+    var card = element.detach();
+    newColumn.append(card);
+  };
+  return $("<div>").addClass("card").attr("id","card-"+this.id).append($("<p>").text(this.description));
 }
 
 (function (document, $, storage) {
   $(document).ready(function() {
     var theBoard = new Board( $("#board") );
     theBoard.createColumns( ["to-do","wip","done"] );
-    var new_card = new Card();
-    $("#to-do").append(new_card);
+    var new_card = new Card("ABC");
+    new_card.appendTo($("#to-do .cards"));
+    $(document).on('click', "#card-A", function (){
+      $(this).fadeOut('slow',function () {
+        $(this).appendTo('#wip').fadeIn('slow');
+      });
+    });
   });
 })(document, jQuery, localStorage);

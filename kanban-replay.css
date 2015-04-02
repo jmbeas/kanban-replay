@@ -20,8 +20,6 @@ h1 {
 .col {
   border: 1px solid black;
   float: left;
-  width: 4em;
-  height: 12em;
   padding: 0.2em;
 }
 
@@ -31,11 +29,35 @@ h1 {
   margin-bottom: 2px;
 }
 
+.col .cards {
+    border: 0px solid #ccc;
+    width: 4em;
+    height: 12em;
+    text-align: center;
+}
+
 .card {
   background: yellow;
   box-shadow: 3px 3px 4px grey;
-  width: 2em;
-  height: 2em;
-  margin-left: auto;
-  margin-right: auto;
+  width: 3em;
+  height: 3em;
+  display: table;
+  margin: 0 auto;
+}
+
+.card p {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+#buttonbar {
+  text-align: center;
+  margin: 2em;
+}
+
+button {
+  font-size: 1em;
+  box-shadow: 3px 3px 4px grey;
 }
