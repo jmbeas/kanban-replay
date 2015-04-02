@@ -1,6 +1,6 @@
 function Board(element) {
   this.theBoard = element;
-  this.fill = function(columns) {
+  this.createColumns = function(columns) {
     for (i = 0; i < columns.length; i++) {
       var column_name = columns[i];
       var new_column = $("<div>").addClass("col").attr("id",column_name);
@@ -11,11 +11,15 @@ function Board(element) {
   };
 }
 
+function Card() {
+  return $("<div>").addClass("card");
+}
+
 (function (document, $, storage) {
   $(document).ready(function() {
     var theBoard = new Board( $("#board") );
-    theBoard.fill( ["to-do","wip","done"] );
-    var new_card = $("<div>").addClass("card");
+    theBoard.createColumns( ["to-do","wip","done"] );
+    var new_card = new Card();
     $("#to-do").append(new_card);
   });
 })(document, jQuery, localStorage);
