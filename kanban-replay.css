@@ -36,6 +36,9 @@ h1 {
     text-align: center;
 }
 
+.red {
+  background: red;
+}
 .card {
   background: yellow;
   box-shadow: 3px 3px 4px grey;

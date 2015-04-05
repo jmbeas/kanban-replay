@@ -34,7 +34,8 @@ function Card(cardId,description) {
     new_card.appendTo($("#to-do .cards"));
     $(document).on('click', "#card-ABC", function (){
       $(this).fadeOut('slow',function () {
-        $(this).appendTo('#wip .cards').fadeIn('slow');
+        var nextColumn = $( "#"+$(this).parent().parent().next().attr("id")+" .cards" );
+        $(this).appendTo( nextColumn ).fadeIn('slow');
       });
     });
   });
